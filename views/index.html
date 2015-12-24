@@ -1,0 +1,110 @@
+<% include Bheader.html %>
+
+    
+    <div class="container">
+
+      <div class="blog-header">
+        <h1 class="blog-title"></h1>
+        <p class="lead blog-description">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
+</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title"><%=title %></h2>
+            <p class="blog-post-meta"><%= time %> <a href="#">Misslays</a></p>
+
+        
+            <h4>1.Chrome浏览器变临时的文字编辑器</h4>
+           
+      <br>
+            <pre><code>data:text/html, &lt;html contenteditable> </code></pre>
+            <br />
+
+              <h4>2.一键页面保存为pdf</h4>
+           
+      <br>
+            <p>想把网页保存为PDF？按快捷键Ctrl+P，然后在显示出来的打印页面上把目标打印机更改为“另存为PDF”，最后按保存就完成了，逼格爆满。超级实用</p>
+            <br/>
+         
+              <h4>3.chrome变身pdf阅读器</h4>
+           
+      <br>
+            <p>没有PDF阅览器 没关系 直接把pdf文件拖到Chrome窗口里面就可以查看了~</p>
+          </div><!-- /.blog-post -->
+
+         <div class="blog-post">
+            <h2 class="blog-post-title"> Node.js开发框架Express4.x</h2>
+                <p class="blog-post-meta">11 16, 2015 by &nbsp;  <a href="#">Misslays</a></p>
+                <h4>1.node.js环境配置</h4>
+                   <a href="http://blog.csdn.net/u014345282/article/details/49071061" <blockquote>http://blog.csdn.net/u014345282/article/details/49071061</blockquote></a>
+                   <br />
+                   <br />
+                <h4>2.express框架安装</h4>
+                  <pre><code> npm install -g express-generator@4  #全局安装-g</code></pre>
+                   <br />
+               
+                  <h4>3.创建项目</h4> 
+                  <pre><code>cd g:\01node  #切换到你要创建的项目目录</code></pre>
+                       <pre></code>g:</code></pre>
+                       <pre><code>express -e nodejs-demo</code></pre>
+                       <br/>
+                   <h4>4.进入项目目录 下载依赖库</h4> 
+                   <pre><code>cd nodejs-demo && npm install</code></pre>
+                   <br />
+                   <h4>5.启动</h4> 
+                   <pre><code>npm start</code></pre>
+                   </div><!-- /.blog-post -->
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">node.js异步式I/O与事件式编程</h2>
+            <p class="blog-post-meta">11 12, 2015 by &nbsp;<a href="#">Chris</a></p>
+            <h4>1.阻塞与线程</h4>
+            <ul>
+            <li>阻塞</li>
+            <p><blockquote>线程在执行中如果遇到磁盘读写或网络通信（或统称为I/O操作），通常需要耗费很长时间，这时操作系统会剥夺这个线程CPU的控制权，使其暂停执行，同时将资源让给其他的工作线程。</blockquote></p>
+          
+            <li>同步式I/O或阻塞式I/O:</li>
+
+             <p><blockquote>当I/O操作完毕时，操作系统将这个线程的阻塞状态解除，恢复其对CPU的操作权，令其继续执行，这种I/O模式就是同步式I/O或阻塞式I/O.</blockquote></p>
+            <li>异步式I/O</li>
+
+        
+           <p><blockquote>当线程遇到I/O操作时，不会以阻塞的方式等待I/O操作的完成或数据的返回，而是将I/O请求发送给操作系统，继续执行下一条语句。当操作系统完成 I/O 操作时，以事件的形式通知执行 I/O 操作的线程，线程会在特定时候处理这个事件。为了处理异步I/O，线程必须有事件循环，不断地检查有没有未处理的事件，依次予以处理。</blockquote></p>
+           </ul>
+
+           <H4>2.优缺点比较</H4>
+
+           <p>阻塞模式下，一个线程只能处理一项任务，要想提高吞吐量必须通过多线程。
+           <br/>而非阻塞模式下，一个线程永远在执行计算操作，这个线程所使用的 CPU 核心利用率永远是 100%，I/O 以事件的方式通知。<br/>在阻塞模式下，多线程往往能提高系统吞吐量，因为一个线程阻塞时还有其他线程在工作，多线程可以让 CPU 资源不被阻塞中的线程浪费。<br />
+           而在非阻塞模式 下，线程不会被 I/O 阻塞，永远在利用 CPU。<br/>
+           多线程带来的好处仅仅是在多核 CPU 的情况下利用更多的核，而Node.js的单线程也能带来同样的好处。<em>这就是为什么 Node.js 使用了单线程、非阻塞的事件编程模式。</em>
+           <br />
+
+<br /><h4>3.单线程事件驱动的异步式 I/O 比传统的多线程阻塞式 I/O 究竟好在哪里呢？</h4>
+    <br/>
+简而言之，异步式 I/O 就是少了多线程的开销。对操作系统来说，创建一个线程的代价是十分昂贵的，需要给它分配内存、列入调度，同时在线程切换的时候还要执行内存换页， CPU 的缓存被清空，切换回来的时候还要重新从内存中读取信息，破坏了数据的局部性。 ①当然，异步式编程的缺点在于不符合人们一般的程序设计思维，容易让控制流变得晦涩 
+难懂，给编码和调试都带来不小的困难。习惯传统编程模式的开发者在刚刚接触到大规模的异步式应用时往往会无所适从，但慢慢习惯以后会好很多。尽管如此，异步式编程还是较为困难，不过可喜的是现在已经有了不少专门解决异步式编程问题的库。<p>
+
+
+  
+          </div><!-- /.blog-post -->
+
+        <nav>
+            <ul class="pager">
+              <li><a href="#">Previous</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+
+        </div><!-- /.blog-main -->
+
+        <% include sidebar.html %>
+              </div><!-- /.row -->
+
+    </div><!-- /.container -->
+         <% include Bfooter.html %>

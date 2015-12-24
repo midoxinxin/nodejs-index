@@ -1,0 +1,86 @@
+<% include Hheader.html %>
+ <div class="container-fluid">
+      <div class="row">
+        <% include Hsidebar.html %>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        
+           <div class="jumbotron">
+           <h2 class="sub-header"><strong>用户登录</strong></h2>
+        <br/>
+	<title><%= title %></title>
+	
+	
+</head>
+<body screen_capture_injected="true">
+	<div class="container">
+	<%- message %>
+		<form class="col-sm-offset-4 col-sm-4 form-horizontal" role="form" method="post" onsubmit="return false">
+			<fieldset style="width: 184%;margin: -9% 0% 0% -44%;">
+				<legend></legend>
+				<div class="panel panel-default">
+				<div class="panel-body m15" style="padding: 9% 5% 1% 5%;">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon">
+						<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="text" class="form-control" id="password" name="password" placeholder="请输入密码" required>
+					</div>
+				</div>
+				<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-lg btn-block" id="login0">登录</button>
+				</div>
+				<div class="form-group">
+						<button type="button" class="btn btn-success  btn-lg col-sm-2 col-sm-offset-10" id="register0">注册</button>
+				</div>
+				</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+ </div>
+      </div>
+    </div>
+    </div>
+
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	$(function(){ 
+		$("#register0").click(function(){ 
+			location.href = 'register';
+		});
+		$("#login0").click(function(){ 
+			var username = $("#username").val();
+			var password = $("#password").val();
+			var data = {"uname":username,"upwd":password};
+			$.ajax({ 
+				url:'/login',
+				type:'post',
+				data: data,
+				success: function(data,status){ 
+					if(status == 'success'){ 
+						location.href = 'home';
+					}
+				},
+				error: function(data,status){ 
+					if(status == 'error'){ 
+						location.href = 'login';
+					}
+				}
+			});
+		});
+	});
+	</script>
+	<% include Hfooter.html %>
+</body>
+</head>
+</html>
