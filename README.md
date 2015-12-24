@@ -1,4 +1,4 @@
-nodejs+moogoose+bootstrap 实现的页面
+nodejs+mongoose+bootstrap 实现的页面
 
 其中 
 
